@@ -47,13 +47,16 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ .Site.Title }}">
     <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ with .Site.Params.googleSiteVerification }}
+      <meta name="google-site-verification" content="{{ . }}">
+    {{ end }}
     {{ with .Site.Author.twitter }}
       <meta name="twitter:creator" content="@{{ . }}">
     {{ end }}
     {{ with .Site.Params.fbAppId }}
       <meta property="fb:app_id" content="{{ . }}">
-    {{ end }}
-
+    {{ end }}]
+    
     <!-- Facebook admins -->
     {{ with .Site.Params.fbAdminIds }}
       {{ range . }}
